@@ -79,8 +79,10 @@ class GalleryActivity : AppCompatActivity() {
     }
 
     private fun saveImage() {
+//        var dir = externalCacheDir;
+        var dir = getExternalFilesDir(null)?.absolutePath;
         val fileName = System.currentTimeMillis().toString() + ".jpg"
-        gpuImageView.saveToPictures("GPUImage", fileName) { uri ->
+        gpuImageView.saveToPictures(dir, fileName) { uri ->
             Toast.makeText(this, "Saved: " + uri.toString(), Toast.LENGTH_SHORT).show()
         }
     }

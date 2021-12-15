@@ -30,6 +30,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -551,8 +552,9 @@ public class GPUImageView extends FrameLayout {
         }
 
         private void saveImage(final String folderName, final String fileName, final Bitmap image) {
-            File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-            File file = new File(path, folderName + "/" + fileName);
+//            File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+            File file = new File(folderName + "/" + fileName);
+
             try {
                 file.getParentFile().mkdirs();
                 image.compress(Bitmap.CompressFormat.JPEG, 80, new FileOutputStream(file));
@@ -574,6 +576,7 @@ public class GPUImageView extends FrameLayout {
                                 }
                             }
                         });
+                Log.i("CHHH", "save to path=" + file.getAbsolutePath());
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }

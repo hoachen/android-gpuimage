@@ -46,6 +46,7 @@ import java.net.URL;
 import java.util.List;
 
 import jp.co.cyberagent.android.gpuimage.filter.GPUImageFilter;
+import jp.co.cyberagent.android.gpuimage.filter.GPUImageMagnifierFilter;
 import jp.co.cyberagent.android.gpuimage.util.Rotation;
 
 /**
@@ -80,7 +81,7 @@ public class GPUImage {
         }
 
         this.context = context;
-        filter = new GPUImageFilter();
+        filter = new GPUImageMagnifierFilter();
         renderer = new GPUImageRenderer(filter);
     }
 
